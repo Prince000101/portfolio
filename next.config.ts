@@ -31,13 +31,6 @@ const securityHeaders = [
   },
 ];
 
-const adminHeaders = [
-  {
-    key: "X-Robots-Tag",
-    value: "noindex, nofollow",
-  },
-];
-
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   async headers() {
@@ -45,10 +38,6 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: securityHeaders,
-      },
-      {
-        source: "/:secret*",
-        headers: adminHeaders,
       },
     ];
   },
