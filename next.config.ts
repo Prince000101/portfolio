@@ -29,6 +29,9 @@ const securityHeaders = [
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=()",
   },
+];
+
+const adminHeaders = [
   {
     key: "X-Robots-Tag",
     value: "noindex, nofollow",
@@ -42,6 +45,10 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: securityHeaders,
+      },
+      {
+        source: "/:secret*",
+        headers: adminHeaders,
       },
     ];
   },
